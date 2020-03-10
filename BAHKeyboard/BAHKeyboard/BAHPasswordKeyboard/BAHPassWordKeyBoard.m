@@ -13,13 +13,30 @@
 #import <AudioToolbox/AudioToolbox.h>
 
 //屏幕判断
-#define plusInch ([UIScreen mainScreen].bounds.size.height > 700)
+#define MAXInch ([UIScreen mainScreen].bounds.size.height == 896)
+#define XRInch ([UIScreen mainScreen].bounds.size.height == 896)
+#define XInch ([UIScreen mainScreen].bounds.size.height == 812)
+#define plusInch ([UIScreen mainScreen].bounds.size.height == 736)
+#define normalInch ([UIScreen mainScreen].bounds.size.height == 667)
+#define SEInch ([UIScreen mainScreen].bounds.size.height == 568)
+
 //密码键盘的宽度
 #define kKeyboardPadding 43
-#define kKeyboardHeight 253  //整体高度
+#define kKeyboardHeight 253  // 键盘整体高度  SE
 #define kKeyboardHeightOfKeys kKeyboardHeight - kKeyboardPadding  //按钮布局高度
-#define kKeyboardHeightPlus 270 //设置plus尺寸的高度
+
+#define kKeyboardHeightPlus 271 //设置plus尺寸的高度 PLUS
 #define kKeyboardHeightOfKeyPlus kKeyboardHeightPlus - kKeyboardPadding
+
+
+#define kKeyboardHeightXR 340 // 键盘整体高度 XR OR MAX
+#define kKeyboardHeightOfKeyXR kKeyboardHeightXR - kKeyboardPadding
+
+#define kKeyboardHeightX 333 // 键盘整体高度 X
+#define kKeyboardHeightOfKeyX kKeyboardHeightX - kKeyboardPadding
+
+#define kKeyboardHeightNormal 258 // 6\7\8
+#define kKeyboardHeightOfKeyNormal kKeyboardHeightNormal - kKeyboardPadding
 
 
 @interface BAHPassWordKeyBoard ()<BAHKeyBoardCharViewDelegate>
@@ -93,10 +110,19 @@
 // 设置两种键盘高度
 - (void)checkKeyboardHeight
 {
-    if (plusInch){
+    if (XRInch || MAXInch) {
+        keyboardHeight = kKeyboardHeightXR;
+        keyboardHeightOfKeys = kKeyboardHeightOfKeyXR;
+    }
+    else if (plusInch){
         keyboardHeight = kKeyboardHeightPlus;
         keyboardHeightOfKeys = kKeyboardHeightOfKeyPlus;
-    }else{
+    }
+    else if (normalInch) {
+        keyboardHeight = kKeyboardHeightNormal;
+        keyboardHeightOfKeys = kKeyboardHeightOfKeyNormal;
+    }
+    else{
         keyboardHeight = kKeyboardHeight;
         keyboardHeightOfKeys = kKeyboardHeightOfKeys;
     }

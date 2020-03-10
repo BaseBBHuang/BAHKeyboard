@@ -60,9 +60,12 @@
     space_x = 2;
     space_y = 7;
 
+    CGFloat buttonSafeAreaWidth = self.frame.size.width;
+    CGFloat buttonSafeAreaHeight = self.frame.size.height - kBottomSafeArea;
+    
     NSMutableArray *array = [[NSMutableArray alloc] init];
-    btn_width = (self.frame.size.width - space_x*11)/10;
-    btn_height = (self.frame.size.height - space_y*5)/4;
+    btn_width = (buttonSafeAreaWidth - space_x*11)/10;
+    btn_height = (buttonSafeAreaHeight - space_y*5)/4;
     for (NSInteger i=0; i<2; i++)
     {
         for (NSInteger j=0; j<10; j++)

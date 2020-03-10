@@ -74,9 +74,13 @@
 {
     space_x = 2;
     space_y = 7;
+    
+    CGFloat buttonSafeAreaWidth = self.frame.size.width;
+    CGFloat buttonSafeAreaHeight = self.frame.size.height - kBottomSafeArea;
+    
     //第一行布局 10个按钮
-    float btn_width = (self.frame.size.width-space_x*11)/10;
-    btn_height = (self.frame.size.height-space_y*5)/4;
+    float btn_width = (buttonSafeAreaWidth-space_x*11)/10;
+    btn_height = (buttonSafeAreaHeight-space_y*5)/4;
     NSMutableArray *array = [[NSMutableArray alloc] init];
     for (NSInteger i=0; i<10; i++)
     {

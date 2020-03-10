@@ -38,5 +38,7 @@
 #define KEYBOARD_TYPE_BIG_ENGLISH 2
 #define KEYBOARD_TYPE_SYMBOLS 3
 
+// 底部安全距离
+#define kBottomSafeArea 20
 
 #endif /* BAHKeyboardHeader_h */

@@ -54,8 +54,11 @@
     int row = 4;
     int column = 3;
     
-    numKeyWidth = self.frame.size.width/column;
-    numKeyHeight = self.frame.size.height/row;
+    CGFloat buttonSafeAreaWidth = self.frame.size.width;
+    CGFloat buttonSafeAreaHeight = self.frame.size.height - kBottomSafeArea;
+    
+    numKeyWidth = buttonSafeAreaWidth/column;
+    numKeyHeight = buttonSafeAreaHeight/row;
     
     NSMutableArray *array = [[NSMutableArray alloc] init];
     //布局前面两行
